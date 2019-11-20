@@ -7,6 +7,7 @@ import UserBar from "./user/UserBar";
 import Post from "./post/Post";
 import PostList from "./post/PostList";
 import CreatePost from "./post/CreatePost";
+import ReducerApp from "./exp/Reducers";
 
 import "./styles.css";
 
@@ -20,7 +21,8 @@ function App() {
   //return <UserBar />;
   //return <PostList posts={posts} />;
   //return <CreatePost />;
-  return (
+  return <ReducerApp />;
+  /*return (
     <div>
       <UserBar />
       <br />
@@ -28,7 +30,7 @@ function App() {
       <hr />
       <PostList posts={posts} />
     </div>
-  );
+  );*/
 }
 
 const rootElement = document.getElementById("root");
