@@ -8,6 +8,7 @@ import Post from "./post/Post";
 import PostList from "./post/PostList";
 import CreatePost from "./post/CreatePost";
 import ReducerApp from "./exp/Reducers";
+import LoginControl from "./learn/Learn";
 
 import "./styles.css";
 
@@ -21,7 +22,9 @@ function App() {
   //return <UserBar />;
   //return <PostList posts={posts} />;
   //return <CreatePost />;
-  return <ReducerApp />;
+  //return <ReducerApp />;
+  //  return <Greeting isLoggedIn={true} />;
+  return <LoginControl />;
   /*return (
     <div>
       <UserBar />
