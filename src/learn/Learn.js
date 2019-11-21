@@ -31,7 +31,7 @@ class LoginControl extends React.Component {
   }
 
   handleLoginClick() {
-    console.log("login clicked ...");
+    // console.log("login clicked ...");
     this.setState({ isLoggedIn: true });
   }
 
@@ -41,7 +41,7 @@ class LoginControl extends React.Component {
 
   render() {
     const isLoggedIn = this.state.isLoggedIn;
-    console.log("In render " + isLoggedIn);
+    // console.log("In render " + isLoggedIn);
     let button;
 
     if (isLoggedIn) {
