@@ -5,13 +5,16 @@ function StateFetchData() {
   const [data, setData] = useState({ hits: [] });
   const [query, setQuery] = useState("redux");
   const [search, setSearch] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchdata = async () => {
+      setIsLoading(true);
       const result = await axios(
         `https://hn.algolia.com/api/v1/search?query=${search}`
       );
       setData(result.data);
+      setIsLoading(false);
     };
     fetchdata();
     // const result = await axios(
@@ -31,13 +34,17 @@ function StateFetchData() {
         {" "}
         Search{" "}
       </button>
-      <ul>
-        {data.hits.map(item => (
-          <li key={item.objectID}>
-            <a href={item.url}>{item.title}</a>
-          </li>
-        ))}
-      </ul>
+      {isLoading ? (
+        <div> Loading ... </div>
+      ) : (
+        <ul>
+          {data.hits.map(item => (
+            <li key={item.objectID}>
+              <a href={item.url}>{item.title}</a>
+            </li>
+          ))}
+        </ul>
+      )}
     </Fragment>
   );
 }
