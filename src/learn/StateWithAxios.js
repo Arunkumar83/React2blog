@@ -6,14 +6,20 @@ function StateFetchData() {
   const [query, setQuery] = useState("redux");
   const [search, setSearch] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     const fetchdata = async () => {
+      setIsError(false);
       setIsLoading(true);
-      const result = await axios(
-        `https://hn.algolia.com/api/v1/search?query=${search}`
-      );
-      setData(result.data);
+      try {
+        const result = await axios(
+          `https://hn.algolia.com/api/v1/search?query=${search}`
+        );
+        setData(result.data);
+      } catch (error) {
+        setIsError(true);
+      }
       setIsLoading(false);
     };
     fetchdata();
@@ -34,6 +40,7 @@ function StateFetchData() {
         {" "}
         Search{" "}
       </button>
+      {isError && <div> Something went wrong ...</div>}
       {isLoading ? (
         <div> Loading ... </div>
       ) : (
