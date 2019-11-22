@@ -10,6 +10,7 @@ import CreatePost from "./post/CreatePost";
 import ReducerApp from "./exp/Reducers";
 import LoginControl from "./learn/Learn";
 import MessageApp from "./learn/State";
+import StateFetchData from "./learn/StateWithAxios";
 
 import "./styles.css";
 
@@ -26,7 +27,8 @@ function App() {
   //return <ReducerApp />;
   //  return <Greeting isLoggedIn={true} />;
   //  return <LoginControl />;
-  return <MessageApp />;
+  //return <MessageApp />;
+  return <StateFetchData />;
   /*return (
     <div>
       <UserBar />
